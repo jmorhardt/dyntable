@@ -1,7 +1,7 @@
 dyntable
 ========
 
-DynTable offers a lightweight, simplistic approach to rendering HTML tables for jQuery fans. It doesn't do inline editing or auto saving. It just renders (and, if you're into that, dynamically updates), an HTML table. It works great as a dynamic queue! No fluff, just simplicity.
+DynTable offers a lightweight, simplistic approach to rendering HTML tables for jQuery fans. It doesn't do inline editing or auto saving. It does not support multi-dimensional arrays as data input. It just renders (and, if you're into that, dynamically updates), an HTML table. It works great as a dynamic queue! No fluff, just simplicity.
 
 To use the plugin:
 <pre>
