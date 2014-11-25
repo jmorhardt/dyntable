@@ -12,7 +12,7 @@ The plugin offers a lightweight, simplistic approach to rendering HTML tables. T
 When the plugin initializes, it will attempt to retrieve and render data using the dataUrl parameter as a source for JSON data. This allows for asynchronous fetching of the tabular data and rendering. In the background, the table will execute an AJAX GET request synchronously.
 
 If the data is already available, the plugin can use an existing data object rather than fetching it:
-
+<p>
 <code>
   $('queue-table').dyntable({
                         data:{
@@ -23,7 +23,7 @@ If the data is already available, the plugin can use an existing data object rat
                                 ]
                     });
 </code>
-
+</p>
 The plugin's behaviour can also be customized. To dynamically update the table as the data changes:
 
 <code>
