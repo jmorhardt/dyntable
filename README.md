@@ -15,12 +15,12 @@ The plugin can be configured to dynamically update the table as the data changes
 <pre>
 <code>
   $('#queue-container').dyntable({
-                      dynamicUpdate:{
-                        enabled: true,
-                        interval: 5000 // 5 seconds between polling requests
-                       }},
-                      dataUrl: 'http://<server>/queue/current?format=json'
-                  });
+                          dynamicUpdate:{
+                            enabled: true,
+                            interval: 5000 // 5 seconds between polling requests
+                           }},
+                          dataUrl: 'http://<server>/queue/current?format=json'
+                        });
 </code>
 </pre>
 This behaviour assumes the data from source is of higher priroity than the data in the UI and will update the UI to reflect the data.
