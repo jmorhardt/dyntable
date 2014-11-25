@@ -39,7 +39,7 @@ Other parameters can be configured as well:
         }
       </code></pre>
     </td>
-    <td>Adds classes to HTML elements; multiple classes can be added (as shown), but the firt in the list is set as the primary selector and is used internally for DOM manipulation</td>
+    <td>Adds classes to teh <table> and <tr> HTML elements; multiple classes can be added (as shown), but the first in the list is set as the primary selector and is used internally for DOM manipulation</td>
   </tr>
   <tr>
     <td>dynamicUpdate</td>
