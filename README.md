@@ -79,4 +79,4 @@ Other parameters can be configured as well:
   </tr>
 </table>
 
-Have fun!
+That's it. Told you it was simple.
