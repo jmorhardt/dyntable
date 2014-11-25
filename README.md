@@ -34,12 +34,12 @@ Other parameters can be configured as well:
     <td>
       <pre><code>
         {
-          table: ['queue-table', 'table-table], // first selector set as element id of <table>, others as classes
-          row: ['queue-row', 'table-row'] // all added as classes to <tr>
+          table: ['queue-table', 'table-table],
+          row: ['queue-row', 'table-row']
         }
       </code></pre>
     </td>
-    <td>Adds classes to each HTML element; multiple classes can be added (as show), but the firt in the list is set as the primary selector and is used internally for DOM manipulation</td>
+    <td>Adds classes to HTML elements; multiple classes can be added (as shown), but the firt in the list is set as the primary selector and is used internally for DOM manipulation</td>
   </tr>
   <tr>
     <td>dynamicUpdate</td>
