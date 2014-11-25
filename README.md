@@ -75,7 +75,7 @@ Other parameters can be configured as well:
           }
       </code></pre>
     </td>
-    <td>Specifies the data, as an object, to be rendered</td>
+    <td>Specifies the data, as an object, to be rendered; set the *headers* nested object to *null* to render a table without column headers</td>
   </tr>
 </table>
 
