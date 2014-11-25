@@ -51,7 +51,7 @@ Other parameters can be configured as well:
         }
       </code></pre>
     </td>
-    <td>Allows table to be updated dynamically at a specified interval; if enabled, the dataUrl parameter (see below), is required</td>
+    <td>Allows table to be updated dynamically at a specified interval; if enabled, the dataUrl parameter (see below) is required</td>
   </tr>
   <tr>
     <td>dataUrl</td>
