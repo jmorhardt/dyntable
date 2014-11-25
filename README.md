@@ -1,12 +1,12 @@
 dyntable
 ========
 
-DynTable offers a lightweight, simplistic approach to rendering HTML tables for jQuery fans. It doesn't do inline editing or auto saving. It just renders (and, if you're into that, dynamically updates), an HTML table. No fluff, just simplicity.
+DynTable offers a lightweight, simplistic approach to rendering HTML tables for jQuery fans. It doesn't do inline editing or auto saving. It just renders (and, if you're into that, dynamically updates), an HTML table. It works great as a dynamic queue! No fluff, just simplicity.
 
 To use the plugin:
 <pre>
 <code>
-  $('#queue-table').dyntable({dataUrl: 'http://<server>/queue/current?format=json'})
+  $('#queue-container').dyntable({dataUrl: 'http://<server>/queue/current?format=json'})
 </code>
 </pre>
 In this example, when the plugin initializes it will retrieve data using an AJAX request with the dataUrl parameter as a target for the JSON source. It will then render an HTML table using that data into the DOM element to which the plugin's behaviour is bound.
@@ -14,7 +14,7 @@ In this example, when the plugin initializes it will retrieve data using an AJAX
 The plugin can be configured to dynamically update the table as the data changes:
 <pre>
 <code>
-  $('queue-table').dyntable({
+  $('#queue-container').dyntable({
                       dynamicUpdate:{
                         enabled: true,
                         interval: 5000 // 5 seconds between polling requests
@@ -34,8 +34,8 @@ Other parameters can be configured as well:
     <td>
       <pre><code>
         {
-          table: 'queue-table',
-          row: 'queue-row'
+          table: '#queue-table',
+          row: '.queue-row'
         }
       </code></pre>
     </td>
