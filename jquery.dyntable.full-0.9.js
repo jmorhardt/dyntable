@@ -12,6 +12,7 @@
             return;
         }
         if(options &&
+            options.dynamicUpdate &&
             options.dynamicUpdate.enabled == true &&
             ( options.dataUrl == '' ||
                 options.dataUrl == undefined )){
@@ -19,6 +20,7 @@
             return;
         }
         if(options &&
+            options.dynamicUpdate &&
             options.dynamicUpdate.enabled == true &&
             ( options.dynamicUpdate.interval == null ||
                 options.dynamicUpdate.interval == undefined ||
@@ -28,14 +30,29 @@
         }
 
         var container = this;
-
-        var settings = $.extend({
+        
+        var settings = {
             selector: {container: '#' + container[0].id, table: '#queue-table', row: '.queue-row'},
-            dynamicUpdate: {enabled: false, interval: null},
-            dataUrl: null,
-            data: {header: null, rows: null}
-        }, options);
+            dynamicUpdate: (options.dynamicUpdate ? options.dynamicUpdate : {enabled: false, interval: null} ),
+            dataUrl: ( options.dataUrl ? options.dataUrl : null ),
+            data: ( options.data ? options.data : {header: null, rows: null} ),
+            options: options
+        };
 
+        // setting selectors when more than one specified
+        if(options.selector && options.selector.table){
+        	settings.selector.table == ( options.selector.table.length > 1 ? 
+											settings.options.selector.table[0] :
+											settings.options.selector.table );
+        }
+        
+        if(options.selector && options.selector.row){
+        	settings.selector.row == ( options.selector.row.length > 1 ? 
+											settings.options.selector.row[0] :
+											settings.options.selector.row );
+        }
+        
+        
         var manager = {
 
             pontificate: function(){
@@ -43,6 +60,8 @@
                 helpers.setData(helpers.getData, helpers._setData, settings);
 
                 var rowsInUI = $(settings.selector.table).find(settings.selector.row);
+
+                if(settings.data.rows == null)  return;
 
                 // data is returned already ordered correctly, so we just need to re-render
                 $.each(settings.data.rows, function(k,v){
@@ -72,11 +91,15 @@
 
             buildTable: function(tableData){
                 var html = '';
-                html += '<table id="' + settings.selector.table.split('#')[1] + '">';
+                html += '<table id="' + settings.selector.table.split('#')[1] + '" ' +
+                                'class="' +  helpers.getClassesAsString('table') + '"' +
+                        '>';
                 if(tableData.header) html += this.buildHeader(tableData.header);
-                $.each(tableData.rows, function(k,v){
-                    html += manager.buildRow(v, k+1);
-                });
+                if(tableData.rows != undefined){
+                    $.each(tableData.rows, function(k,v){
+                        html += manager.buildRow(v, k+1);
+                    });
+                }
                 html += '</table>';
 
                 return html;
@@ -96,7 +119,7 @@
             },
 
             buildRow: function(rowData, rowNumber){
-                var html = '<tr class="' + settings.selector.row.split('.')[1] + '" id="' + rowData.id + '">';
+                var html = '<tr class="' +  helpers.getClassesAsString('row') + '"  id="' + rowData.id + '">';
 
                 // if a row number is supplied, add to beginning of row
                 if(rowNumber != null){
@@ -118,7 +141,7 @@
             getData: function(callback, url, obj){
                 $.ajax({
                     url: url,
-                    type: 'POST',
+                    type: 'GET',
                     dataType: 'json',
                     contentType:"application/json; charset=utf-8",
                     async: false,
@@ -137,6 +160,45 @@
 
             _setData: function(data, obj){
                 settings.data.rows = data.rows;
+            },
+            
+            getClassesAsString: function(element){
+            	var classes =  this.getClassesForElement(element);
+            	var classesAsString = '';
+            	$.each(classes, function(k, v){
+            		var split = v.split('#');
+            		if(v.charAt(0) != "#"){
+            			classesAsString += v.split('.')[1] + ' ';
+            		}
+            	});
+            	
+            	return classesAsString.trim();
+            },
+
+            getClassesForElement: function(element){
+                var classes = new Array();
+                if(element == 'row'){
+                    classes = ( settings.options.selector &&
+                                settings.options.selector.row ?
+                                settings.options.selector.row :
+                                settings.selector.row );
+                }
+
+                if(element == 'table'){
+                    classes = ( settings.options.selector &&
+                                settings.options.selector.table ?
+                                settings.options.selector.table :
+                                settings.selector.table );
+                }
+
+                // make sure it always returns an Array
+                if(!(classes instanceof Array)){
+                    var a = new Array();
+                    a.push(classes);
+                    return a;
+                }
+
+                return classes;
             }
         }
 
