@@ -6,7 +6,7 @@ DynTable offers a lightweight, simplistic approach to rendering HTML tables for 
 To use the plugin:
 <pre>
 <code>
-  $('#queue-container').dyntable({dataUrl: 'http://<server>/queue/current?format=json'})
+  $('#queue-container').dyntable({dataUrl: 'http://[server]/queue/current?format=json'})
 </code>
 </pre>
 In this example, when the plugin initializes it will retrieve data using an AJAX request with the dataUrl parameter as a target for the JSON source. It will then render an HTML table using that data into the DOM element to which the plugin's behaviour is bound.
@@ -19,7 +19,7 @@ The plugin can be configured to dynamically update the table as the data changes
                             enabled: true,
                             interval: 5000 // 5 seconds between polling requests
                            }},
-                          dataUrl: 'http://<server>/queue/current?format=json'
+                          dataUrl: 'http://[server]/queue/current?format=json'
                         });
 </code>
 </pre>
@@ -57,7 +57,7 @@ Other parameters can be configured as well:
     <td>dataUrl</td>
     <td>
       <pre><code>
-          dataUrl: 'http://<server>/queue/current?format=json'
+          dataUrl: 'http://[server]/queue/current?format=json'
       </code></pre>
     </td>
     <td>Specifies the JSON source (required JSON format) from which the table data is rendered</td>
