@@ -28,7 +28,7 @@ This behaviour assumes the data from source is of higher priroity than the data 
 Other parameters can be configured as well:
 
 <table>
-  <tr><th>Parameter</th><th>Example Value</th><th>Description</th></tr>
+  <tr><th>Parameter</th><th>Example Value/Description</th></tr>
   <tr>
     <td>selector</td>
     <td>
