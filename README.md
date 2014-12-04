@@ -38,8 +38,9 @@ Other parameters can be configured as well:
           row: ['queue-row', 'table-row']
         }
       </code></pre>
+      
+      Adds classes to the <i>table</i> and <i>row</i> HTML elements; multiple classes can be added (as shown), but the first in the list is set as the primary selector and is used internally for DOM manipulation
     </td>
-    <td>Adds classes to the <i>table</i> and <i>row</i> HTML elements; multiple classes can be added (as shown), but the first in the list is set as the primary selector and is used internally for DOM manipulation</td>
   </tr>
   <tr>
     <td>dynamicUpdate</td>
@@ -50,8 +51,9 @@ Other parameters can be configured as well:
           interval: 5000
         }
       </code></pre>
+      
+      Allows table to be updated dynamically at a specified interval; if enabled, the dataUrl parameter (see below) is required
     </td>
-    <td>Allows table to be updated dynamically at a specified interval; if enabled, the dataUrl parameter (see below) is required</td>
   </tr>
   <tr>
     <td>dataUrl</td>
@@ -59,8 +61,9 @@ Other parameters can be configured as well:
       <pre><code>
           dataUrl: 'http://[server]/queue/current?format=json'
       </code></pre>
+    
+    Specifies the JSON source (required JSON format) from which the table data is rendered
     </td>
-    <td>Specifies the JSON source (required JSON format) from which the table data is rendered</td>
   </tr>
   <tr>
     <td>data</td>
@@ -74,8 +77,9 @@ Other parameters can be configured as well:
                   ]
           }
       </code></pre>
+    
+    Specifies the data, as an object, to be rendered; set the <i>headers</i> nested object to <i>null</i> to render a table without column headers
     </td>
-    <td>Specifies the data, as an object, to be rendered; set the <i>headers</i> nested object to <i>null</i> to render a table without column headers</td>
   </tr>
 </table>
 
